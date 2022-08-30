@@ -8,21 +8,13 @@ describe('Bateria casos de prueba Vademecumlegal', () => {
 
     })
 })
-  it('passes', () => {
+  it('ingresamos', () => {
     cy.visit('https://www.vademecumlegal.es/')
   })
 
   it('Registrarnos por primera vez', function(){
     cy.get('#hs-eu-confirmation-button').click()
-    cy.get('.leadin-preview-wrapper').should('be.visible')
-    cy.get('.leadin-button').click()
-    cy.get('#input-firstname-d2af267c-88f7-4616-8c8d-f81dce94841d').type('cristina', { force: true })
-    cy.get('#input-email-d2af267c-88f7-4616-8c8d-f81dce94841d').type('cristina@hola.es', { force: true })
-    
-    cy.get('#input-rea_de_inter_s-d2af267c-88f7-4616-8c8d-f81dce94841d').select('Estudiante').should('have.value','Estudiante')
-    cy.get('#input-software-d2af267c-88f7-4616-8c8d-f81dce94841d').select('Sudespacho').should('have.value', 'Sudespacho')
-    cy.get('.leadin-button').click()
-    cy.get('#leadin-close-button').click()
+    cy.get('.q-ml-sm').click()
     cy.get('[data-testid="toolbar-login-btn"]').click({ force: true })
     cy.get('[data-testid="go-to-register"]').click()
     cy.get('[data-testid="register-name-input"]').type('cristina')
