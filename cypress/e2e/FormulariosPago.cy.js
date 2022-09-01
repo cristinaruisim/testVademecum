@@ -1,7 +1,16 @@
 describe('Bateria casos de prueba Vademecumlegal', () => {
 
+
+  before(function () {
+   
+    cy.fixture('datosUsuario').then(function (datos) {
+       this.datos = datos
+      
+
+    })
+
 })
-  it('ingresamos', () => {
+  before('ingresamos', () => {
     cy.visit('https://www.vademecumlegal.es/')
   })
 
@@ -9,8 +18,8 @@ describe('Bateria casos de prueba Vademecumlegal', () => {
   it('Accedemos a formularios,hasta pasarela de pago', function(){
     cy.get('#hs-eu-confirmation-button').click({ force: true })
     cy.get('[data-testid="toolbar-login-btn"]').click()
-    cy.get('[data-testid="login-email-input"]').type('cristinaruisim@hotmail.com')
-    cy.get('[data-testid="login-password-input"]').type('647083589Cris')
+    cy.get('[data-testid="login-email-input"]').type(this.datos.email)
+    cy.get('[data-testid="login-password-input"]').type(this.datos.password)
     cy.get('[data-testid="login-submit-btn"]').click()
     cy.get('[data-testid="menu_item_familia_tab"] > .q-tab__content > .q-tab__label').click()
     cy.get('#menu_child_familia_practicos_familia_list > .q-tab__content > .q-tab__label').click()
@@ -34,7 +43,7 @@ describe('Bateria casos de prueba Vademecumlegal', () => {
    
   
   
-  
+    })
   
   
     
